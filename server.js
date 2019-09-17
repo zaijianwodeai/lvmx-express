@@ -7,6 +7,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 //实现req加上cookies的属性，获取cookie数据
 app.use(cookieParser());
+
+//中间实现静态页面托管设置
+app.use(express.static('public'));
+
 app.get('/', (req,res) =>{
     res.send("主页");
     console.log(req.query);
